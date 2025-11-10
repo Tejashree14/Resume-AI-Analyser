@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Document, Paragraph, TextRun, Packer } from 'docx';
-import { saveAs } from 'file-saver';
+
 import './ResultsPage.css';
 
 const ResultsPage = () => {
@@ -32,7 +31,7 @@ const ResultsPage = () => {
     matched_keywords: matchedKeywords.length ? matchedKeywords : (analysis.matched_keywords || [])
   });
 
-  const [setIsDownloading] = useState(false);
+
   const [activeTab, setActiveTab] = useState('Overview');
 
   // Fix: Always update analysisData if new analysis is passed in state
@@ -57,53 +56,7 @@ const ResultsPage = () => {
     });
   };
 
-  // const handleDownloadEnhancedResume = async () => {
-  //   if (!resumeFile || !analysisData) {
-  //     console.error('Missing resume file or analysis data');
-  //     alert('Missing required data. Please try uploading your resume again.');
-  //     return;
-  //   }
-
-  //   setIsDownloading(true);
-
-  //   try {
-  //     // Call backend enhance-resume endpoint
-  //     const enhanceResponse = await axios.post('http://localhost:8000/api/enhance-resume', {
-  //       original_resume: analysisData.text || '',
-  //       job_description: jobDescription,
-  //       missing_keywords: analysisData.missing_keywords || [],
-  //       suggestions: analysisData.suggestions || [],
-  //       matched_keywords: analysisData.matched_keywords || [],
-  //       ats_score: analysisData.ats_score || 0
-  //     });
-
-  //     console.log('Enhancement response:', enhanceResponse.data);
-
-  //     const enhancedResume = enhanceResponse.data.enhanced_resume;
-
-  //     // Build DOCX file from enhanced resume text
-  //     const doc = new Document({
-  //       sections: [{
-  //         properties: {},
-  //         children: enhancedResume.split('\n').map(line =>
-  //           new Paragraph({
-  //             children: [new TextRun(line)],
-  //             spacing: { after: 100 }
-  //           })
-  //         )
-  //       }]
-  //     });
-
-  //     const blob = await Packer.toBlob(doc);
-  //     saveAs(blob, 'enhanced_resume.docx');
-  //   } catch (error) {
-  //     console.error('Error in handleDownloadEnhancedResume:', error);
-  //     alert(`Error: ${error.message || 'Failed to enhance resume. Please try again.'}`);
-  //   } finally {
-  //     setIsDownloading(false);
-  //   }
-  // };
-
+ 
   // === Score Breakdown ===
   const scoreBreakdown = [
     {
