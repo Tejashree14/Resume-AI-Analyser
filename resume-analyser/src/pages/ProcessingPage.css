@@ -1,0 +1,267 @@
+/* --- New changes start here --- */
+.processing-bg {
+  background: #eaf1ff;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.processing-navbar {
+  background: #fff;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-shadow: 0 2px 8px rgba(59,110,246,0.04);
+}
+
+.processing-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.processing-logo {
+  width: 32px;
+  height: 32px;
+}
+
+.processing-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.processing-status {
+  background: #eaf1ff;
+  color: #3b6ef6;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 16px;
+  font-size: 1rem;
+}
+
+.processing-steps-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0 32px 0;
+  gap: 0;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step-num {
+  background: #e0e3eb;
+  color: #222;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.step.active .step-num {
+  background: #3b6ef6;
+  color: #fff;
+}
+
+.step-check {
+  color: #3bbf6e;
+  font-size: 1.3rem;
+}
+
+.step-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #888;
+}
+
+.step-label-green {
+  color: #3bbf6e;
+}
+
+.step-label-blue {
+  color: #3b6ef6;
+}
+
+.step-divider {
+  width: 48px;
+  height: 2px;
+  background: #e0e3eb;
+  margin: 0 12px;
+}
+
+.processing-center-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(59,110,246,0.08);
+  padding: 36px 40px 32px 40px;
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.processing-card-header {
+  margin-bottom: 18px;
+}
+
+.processing-main-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.processing-main-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.processing-main-desc {
+  font-size: 1.15rem;
+  color: #444;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.processing-progress-labels {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.progress-label {
+  color: #222;
+  font-weight: 500;
+}
+
+.progress-percent {
+  color: #3b6ef6;
+  font-weight: 600;
+}
+
+.processing-progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #f0f2f7;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.processing-progress-bar-fill {
+  height: 100%;
+  background: #222;
+  border-radius: 6px;
+  transition: width 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+.processing-feature-card {
+  background: #f7faff;
+  border-radius: 12px;
+  padding: 18px 22px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.processing-feature-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.processing-feature-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.processing-feature-desc {
+  color: #888;
+  font-size: 1rem;
+}
+
+.processing-steps-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.processing-step-item {
+  background: #f7faff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  min-width: 220px;
+  flex: 1 1 45%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.08rem;
+  color: #222;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(59,110,246,0.04);
+  position: relative;
+}
+
+.processing-step-item.done {
+  background: #eafaf1;
+  color: #3bbf6e;
+}
+
+.processing-step-item.active {
+  background: #eaf1ff;
+  color: #3b6ef6;
+}
+
+.step-status-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.step-done {
+  color: #3bbf6e;
+}
+
+.step-label-text {
+  font-weight: 500;
+}
+
+.step-label-done {
+  color: #3bbf6e;
+}
+
+.loader-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3b6ef6;
+  animation: loaderDot 1s infinite alternate;
+  display: inline-block;
+}
+
+@keyframes loaderDot {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+/* --- New changes end here --- */
