@@ -57,12 +57,12 @@ const ResultsPage = () => {
     });
   };
 
-  const handleDownloadEnhancedResume = async () => {
-    if (!resumeFile || !analysisData) {
-      console.error('Missing resume file or analysis data');
-      alert('Missing required data. Please try uploading your resume again.');
-      return;
-    }
+  // const handleDownloadEnhancedResume = async () => {
+  //   if (!resumeFile || !analysisData) {
+  //     console.error('Missing resume file or analysis data');
+  //     alert('Missing required data. Please try uploading your resume again.');
+  //     return;
+  //   }
 
     setIsDownloading(true);
 
