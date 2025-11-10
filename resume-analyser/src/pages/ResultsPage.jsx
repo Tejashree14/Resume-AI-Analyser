@@ -64,45 +64,45 @@ const ResultsPage = () => {
   //     return;
   //   }
 
-    setIsDownloading(true);
+  //   setIsDownloading(true);
 
-    try {
-      // Call backend enhance-resume endpoint
-      const enhanceResponse = await axios.post('http://localhost:8000/api/enhance-resume', {
-        original_resume: analysisData.text || '',
-        job_description: jobDescription,
-        missing_keywords: analysisData.missing_keywords || [],
-        suggestions: analysisData.suggestions || [],
-        matched_keywords: analysisData.matched_keywords || [],
-        ats_score: analysisData.ats_score || 0
-      });
+  //   try {
+  //     // Call backend enhance-resume endpoint
+  //     const enhanceResponse = await axios.post('http://localhost:8000/api/enhance-resume', {
+  //       original_resume: analysisData.text || '',
+  //       job_description: jobDescription,
+  //       missing_keywords: analysisData.missing_keywords || [],
+  //       suggestions: analysisData.suggestions || [],
+  //       matched_keywords: analysisData.matched_keywords || [],
+  //       ats_score: analysisData.ats_score || 0
+  //     });
 
-      console.log('Enhancement response:', enhanceResponse.data);
+  //     console.log('Enhancement response:', enhanceResponse.data);
 
-      const enhancedResume = enhanceResponse.data.enhanced_resume;
+  //     const enhancedResume = enhanceResponse.data.enhanced_resume;
 
-      // Build DOCX file from enhanced resume text
-      const doc = new Document({
-        sections: [{
-          properties: {},
-          children: enhancedResume.split('\n').map(line =>
-            new Paragraph({
-              children: [new TextRun(line)],
-              spacing: { after: 100 }
-            })
-          )
-        }]
-      });
+  //     // Build DOCX file from enhanced resume text
+  //     const doc = new Document({
+  //       sections: [{
+  //         properties: {},
+  //         children: enhancedResume.split('\n').map(line =>
+  //           new Paragraph({
+  //             children: [new TextRun(line)],
+  //             spacing: { after: 100 }
+  //           })
+  //         )
+  //       }]
+  //     });
 
-      const blob = await Packer.toBlob(doc);
-      saveAs(blob, 'enhanced_resume.docx');
-    } catch (error) {
-      console.error('Error in handleDownloadEnhancedResume:', error);
-      alert(`Error: ${error.message || 'Failed to enhance resume. Please try again.'}`);
-    } finally {
-      setIsDownloading(false);
-    }
-  };
+  //     const blob = await Packer.toBlob(doc);
+  //     saveAs(blob, 'enhanced_resume.docx');
+  //   } catch (error) {
+  //     console.error('Error in handleDownloadEnhancedResume:', error);
+  //     alert(`Error: ${error.message || 'Failed to enhance resume. Please try again.'}`);
+  //   } finally {
+  //     setIsDownloading(false);
+  //   }
+  // };
 
   // === Score Breakdown ===
   const scoreBreakdown = [
