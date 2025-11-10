@@ -32,7 +32,7 @@ const ResultsPage = () => {
     matched_keywords: matchedKeywords.length ? matchedKeywords : (analysis.matched_keywords || [])
   });
 
-  const [isDownloading, setIsDownloading] = useState(false);
+  const [setIsDownloading] = useState(false);
   const [activeTab, setActiveTab] = useState('Overview');
 
   // Fix: Always update analysisData if new analysis is passed in state
