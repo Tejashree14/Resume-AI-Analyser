@@ -1,5 +1,4 @@
-# main.py
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.upload import router as upload_router
 import os
@@ -14,37 +13,25 @@ load_dotenv()
 
 app = FastAPI(title="Resume AI Analyzer")
 
-# Configure CORS
-origins = [
-    "http://localhost:3000",
-    "http://localhost:3000/",
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:3000/"
-]
+# Read allowed origins from environment variable
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
 
+# Configure CORS dynamically
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
     expose_headers=["*"],
 )
 
-# Add request/response logging middleware
+# Logging middleware
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
     logger.info(f"Incoming request: {request.method} {request.url}")
-    logger.info(f"Headers: {request.headers}")
-    
     response = await call_next(request)
-    
     logger.info(f"Response status: {response.status_code}")
-    response.headers["Access-Control-Allow-Origin"] = "http://localhost:3000"
-    response.headers["Access-Control-Allow-Credentials"] = "true"
-    response.headers["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS, PUT, DELETE"
-    response.headers["Access-Control-Allow-Headers"] = "*"
-    
     return response
 
 # Include routers
@@ -52,4 +39,4 @@ app.include_router(upload_router, prefix="/api")
 
 @app.get("/")
 async def root():
-    return {"message": "Resume AI Analyzer API"}
+    return {"message": "Resume AI Analyzer API running successfully"}
