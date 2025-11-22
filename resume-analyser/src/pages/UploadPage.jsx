@@ -49,7 +49,7 @@ const UploadPage = () => {
     try {
       console.log("Sending request to backend...");
       
-      const response = await fetch('http://localhost:8000/api/upload', {
+      const response = await fetch('https://resume-ai-analyser-2.onrender.com/api/upload', {
         method: 'POST',
         body: formData,
         headers: {
